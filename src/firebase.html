@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import {
+            getFirestore,
+            connectFirestoreEmulator,
+            collection,
+            addDoc,
+            getDocs
+        } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCuvw4SHnRIqWsKM19ydDNA9cbCqCTl1H8",
+            authDomain: "bjg-demo.firebaseapp.com",
+            projectId: "bjg-demo",
+            storageBucket: "bjg-demo.appspot.com",
+            messagingSenderId: "756550464910",
+            appId: "1:756550464910:web:07d4638cc931f20e3de0df",
+            measurementId: "G-HDXVQG2KRR"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        connectFirestoreEmulator(db, '127.0.0.1', 8080);
+        console.log(db);
+
+        try {
+            const docRef = await addDoc(collection(db, "users"), {
+                first: "Ada",
+                last: "Lovelace",
+                born: 1815
+            });
+            console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+            console.error("Error adding document: ", e);
+        }
+
+        try {
+            const docRef = await addDoc(collection(db, "users"), {
+                first: "Alan",
+                middle: "Mathison",
+                last: "Turing",
+                born: 1912
+            });
+
+            console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+            console.error("Error adding document: ", e);
+        }
+
+        const querySnapshot = await getDocs(collection(db, "users"));
+        querySnapshot.forEach((doc) => {
+            console.log(`${doc.id} => ${doc.data()}`);
+        });
+
+    </script>
+</head>
+<body>
+<script>
+</script>
+</body>
+</html>

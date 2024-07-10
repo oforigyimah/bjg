@@ -1,0 +1,16 @@
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+src/components/ui
+src/dev
+.firebase
+node_modules
+functions
+public
+.github
+build

@@ -1,0 +1,27 @@
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+.env
+*.iml
+out
+gen
+build
+### react template
+.DS_*
+*.log
+logs
+**/*.backup.*
+**/*.back.*
+
+node_modules
+bower_components
+
+*.sublime*
+
+psd
+thumb
+sketch
+
+.firebase
