@@ -1,7 +1,3 @@
-### Example user template template
-### Example user template
-
-# IntelliJ project files
 .idea
 .env
 *.iml
@@ -14,14 +10,13 @@ build
 logs
 **/*.backup.*
 **/*.back.*
-
 node_modules
 bower_components
-
 *.sublime*
-
 psd
 thumb
 sketch
-
 .firebase
+serviceAccountKey.json
+upload.js
+assign.js
