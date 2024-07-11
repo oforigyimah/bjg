@@ -11,13 +11,13 @@ import {getStorage, connectStorageEmulator} from "firebase/storage";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCuvw4SHnRIqWsKM19ydDNA9cbCqCTl1H8",
-    authDomain: "bjg-demo.firebaseapp.com",
-    projectId: "bjg-demo",
-    storageBucket: "bjg-demo.appspot.com",
-    messagingSenderId: "756550464910",
-    appId: "1:756550464910:web:07d4638cc931f20e3de0df",
-    measurementId: "G-HDXVQG2KRR"
+    apiKey: "AIzaSyATbJNCizDmVmhwYurVylsxG17g4Z2ESnA",
+    authDomain: "bjg-3436b.firebaseapp.com",
+    projectId: "bjg-3436b",
+    storageBucket: "bjg-3436b.appspot.com",
+    messagingSenderId: "231827920964",
+    appId: "1:231827920964:web:b200832273179497380411",
+    measurementId: "G-5GXV8N0YGP"
 };
 
 const app = initializeApp(firebaseConfig);
