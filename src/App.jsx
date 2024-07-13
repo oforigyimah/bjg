@@ -6,20 +6,28 @@ import ProductDetailPage from "@/pages/ProductDetailPage.jsx";
 import SettingsPageV2 from "./pages/SettingsPageV2.jsx";
 import DemoPage from "@/pages/DemoPage.jsx";
 import ProductList from "@/components/ProductList.jsx";
+import TradersPage from "@/pages/TradersPage.jsx";
+import InvestorsPage from "@/pages/InvestorsPage.jsx";
+import FqaPage from "@/pages/FqaPage.jsx";
+import FarmersPage from "@/pages/FarmersPage.jsx";
 
 export default function App() {
-  return (
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LandingPage/>}>
-            <Route index element={<ProductList/>}/>
-            <Route path="demo" element={<DemoPage/>}/>
-          </Route>
-          <Route path="sign-in" element={<LoginPage/>}/>
-          <Route path="sign-up" element={<SignUpPage/>}/>
-          <Route path="settings" element={<SettingsPageV2/>}/>
-          <Route path="product/:id" element={<ProductDetailPage/>}/>
-        </Routes>
-      </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<LandingPage/>}>
+                    <Route index element={<ProductList/>}/>
+                    <Route path="demo" element={<DemoPage/>}/>
+                </Route>
+                <Route path="sign-in" element={<LoginPage/>}/>
+                <Route path="sign-up" element={<SignUpPage/>}/>
+                <Route path="settings" element={<SettingsPageV2/>}/>
+                <Route path="product/:id" element={<ProductDetailPage/>}/>
+                <Route path="traders" element={<TradersPage/>}/>
+                <Route path="fqa" element={<FqaPage/>}/>
+                <Route path="investors" element={<InvestorsPage/>}/>
+                <Route path="farmers" element={<FarmersPage/>}/>
+            </Routes>
+        </BrowserRouter>
+    );
 }

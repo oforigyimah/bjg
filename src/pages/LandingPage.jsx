@@ -3,7 +3,7 @@ import NavbarV0 from "@/components/NavbarV0";
 import SearchBar from "@/components/SearchBar";
 import CategoryNavbar from "@/components/categoryNavbar";
 import CategoryHero from "@/components/CategoryHero";
-import {QueryClient, QueryClientProvider} from "react-query";
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import {CategoryProvider} from "@/context/CategoryContext"
 
 

@@ -1,6 +1,6 @@
 import {createContext, useContext, useEffect, useState} from 'react';
 import {useLocation} from "react-router-dom";
-import {useQuery} from "react-query";
+import {useQuery} from "@tanstack/react-query";
 import {fetchCategories} from "@/lib/utils";
 
 const CategoryContext = createContext(null);
@@ -11,7 +11,9 @@ export const CategoryProvider = ({children}) => {
     const [selectedSubCat, setSelectedSubCat] = useState(null);
     const [subcategories, setSubcategories] = useState([]);
 
-    const {data: categories = [], error, isLoading} = useQuery('categories', fetchCategories, {
+    const { data: categories = [], error, isLoading } = useQuery({
+        queryKey: ['categories'],
+        queryFn: fetchCategories,
         staleTime: Infinity,
     });
 
