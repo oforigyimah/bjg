@@ -1,0 +1,782 @@
+[
+  {
+    "id": "1",
+    "name": "Farm",
+    "sub": [
+      {
+        "id": "1.1",
+        "name": "Crops",
+        "sub": [
+          {
+            "id": "1.1.1",
+            "name": "Grains"
+          },
+          {
+            "id": "1.1.2",
+            "name": "Fruits"
+          },
+          {
+            "id": "1.1.3",
+            "name": "Vegetables"
+          },
+          {
+            "id": "1.1.4",
+            "name": "NutsAndSeeds"
+          },
+          {
+            "id": "1.1.5",
+            "name": "Legumes"
+          },
+          {
+            "id": "1.1.6",
+            "name": "Herbs"
+          },
+          {
+            "id": "1.1.7",
+            "name": "Spices"
+          }
+        ]
+      },
+      {
+        "id": "1.2",
+        "name": "Livestock",
+        "sub": [
+          {
+            "id": "1.2.1",
+            "name": "Cattle"
+          },
+          {
+            "id": "1.2.2",
+            "name": "Poultry"
+          },
+          {
+            "id": "1.2.3",
+            "name": "Pigs"
+          },
+          {
+            "id": "1.2.4",
+            "name": "SheepAndGoats"
+          },
+          {
+            "id": "1.2.5",
+            "name": "Horses"
+          },
+          {
+            "id": "1.2.6",
+            "name": "FishAndAquaculture"
+          }
+        ]
+      },
+      {
+        "id": "1.3",
+        "name": "Dairy",
+        "sub": [
+          {
+            "id": "1.3.1",
+            "name": "Milk"
+          },
+          {
+            "id": "1.3.2",
+            "name": "Cheese"
+          },
+          {
+            "id": "1.3.3",
+            "name": "Yogurt"
+          },
+          {
+            "id": "1.3.4",
+            "name": "Butter"
+          }
+        ]
+      },
+      {
+        "id": "1.4",
+        "name": "Eggs",
+        "sub": [
+          {
+            "id": "1.4.1",
+            "name": "ChickenEggs"
+          },
+          {
+            "id": "1.4.2",
+            "name": "DuckEggs"
+          },
+          {
+            "id": "1.4.3",
+            "name": "QuailEggs"
+          }
+        ]
+      },
+      {
+        "id": "1.5",
+        "name": "Apiary",
+        "sub": [
+          {
+            "id": "1.5.1",
+            "name": "Honey"
+          },
+          {
+            "id": "1.5.2",
+            "name": "Beeswax"
+          },
+          {
+            "id": "1.5.3",
+            "name": "RoyalJelly"
+          },
+          {
+            "id": "1.5.4",
+            "name": "Propolis"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Food",
+    "sub": [
+      {
+        "id": "2.1",
+        "name": "Fresh",
+        "sub": [
+          {
+            "id": "2.1.1",
+            "name": "Fruits"
+          },
+          {
+            "id": "2.1.2",
+            "name": "Vegetables"
+          },
+          {
+            "id": "2.1.3",
+            "name": "Herbs"
+          }
+        ]
+      },
+      {
+        "id": "2.2",
+        "name": "Meat",
+        "sub": [
+          {
+            "id": "2.2.1",
+            "name": "Beef"
+          },
+          {
+            "id": "2.2.2",
+            "name": "Pork"
+          },
+          {
+            "id": "2.2.3",
+            "name": "Chicken"
+          },
+          {
+            "id": "2.2.4",
+            "name": "Lamb"
+          }
+        ]
+      },
+      {
+        "id": "2.3",
+        "name": "Seafood",
+        "sub": [
+          {
+            "id": "2.3.1",
+            "name": "Fish"
+          },
+          {
+            "id": "2.3.2",
+            "name": "Shellfish"
+          }
+        ]
+      },
+      {
+        "id": "2.4",
+        "name": "Baked",
+        "sub": [
+          {
+            "id": "2.4.1",
+            "name": "Bread"
+          },
+          {
+            "id": "2.4.2",
+            "name": "Pastries"
+          },
+          {
+            "id": "2.4.3",
+            "name": "Cakes"
+          },
+          {
+            "id": "2.4.4",
+            "name": "Cookies"
+          }
+        ]
+      },
+      {
+        "id": "2.5",
+        "name": "Packaged",
+        "sub": [
+          {
+            "id": "2.5.1",
+            "name": "CannedVegetables"
+          },
+          {
+            "id": "2.5.2",
+            "name": "JamsAndJellies"
+          },
+          {
+            "id": "2.5.3",
+            "name": "SaucesAndCondiments"
+          }
+        ]
+      },
+      {
+        "id": "2.6",
+        "name": "Drinks",
+        "sub": [
+          {
+            "id": "2.6.1",
+            "name": "Juices"
+          },
+          {
+            "id": "2.6.2",
+            "name": "MilkAndDairyAlternatives"
+          },
+          {
+            "id": "2.6.3",
+            "name": "CoffeeAndTea"
+          },
+          {
+            "id": "2.6.4",
+            "name": "AlcoholicBeverages"
+          }
+        ]
+      },
+      {
+        "id": "2.7",
+        "name": "Snacks",
+        "sub": [
+          {
+            "id": "2.7.1",
+            "name": "Chips"
+          },
+          {
+            "id": "2.7.2",
+            "name": "NutsAndSeeds"
+          },
+          {
+            "id": "2.7.3",
+            "name": "DriedFruits"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Tools",
+    "sub": [
+      {
+        "id": "3.1",
+        "name": "Farming",
+        "sub": [
+          {
+            "id": "3.1.1",
+            "name": "HandTools"
+          },
+          {
+            "id": "3.1.2",
+            "name": "PowerTools"
+          },
+          {
+            "id": "3.1.3",
+            "name": "IrrigationEquipment"
+          }
+        ]
+      },
+      {
+        "id": "3.2",
+        "name": "Machines",
+        "sub": [
+          {
+            "id": "3.2.1",
+            "name": "Tractors"
+          },
+          {
+            "id": "3.2.2",
+            "name": "Harvesters"
+          },
+          {
+            "id": "3.2.3",
+            "name": "Plows"
+          },
+          {
+            "id": "3.2.4",
+            "name": "Seeders"
+          }
+        ]
+      },
+      {
+        "id": "3.3",
+        "name": "Livestock",
+        "sub": [
+          {
+            "id": "3.3.1",
+            "name": "FeedingEquipment"
+          },
+          {
+            "id": "3.3.2",
+            "name": "MilkingMachines"
+          },
+          {
+            "id": "3.3.3",
+            "name": "FencingAndGates"
+          },
+          {
+            "id": "3.3.4",
+            "name": "VeterinarySupplies"
+          }
+        ]
+      },
+      {
+        "id": "3.4",
+        "name": "Garden",
+        "sub": [
+          {
+            "id": "3.4.1",
+            "name": "Trowels"
+          },
+          {
+            "id": "3.4.2",
+            "name": "Pruners"
+          },
+          {
+            "id": "3.4.3",
+            "name": "WateringCans"
+          },
+          {
+            "id": "3.4.4",
+            "name": "PlantersAndPots"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Supplies",
+    "sub": [
+      {
+        "id": "4.1",
+        "name": "Seeds",
+        "sub": [
+          {
+            "id": "4.1.1",
+            "name": "VegetableSeeds"
+          },
+          {
+            "id": "4.1.2",
+            "name": "FruitTrees"
+          },
+          {
+            "id": "4.1.3",
+            "name": "FlowerSeeds"
+          },
+          {
+            "id": "4.1.4",
+            "name": "OrganicSeeds"
+          }
+        ]
+      },
+      {
+        "id": "4.2",
+        "name": "Fertilizers",
+        "sub": [
+          {
+            "id": "4.2.1",
+            "name": "OrganicFertilizers"
+          },
+          {
+            "id": "4.2.2",
+            "name": "ChemicalFertilizers"
+          },
+          {
+            "id": "4.2.3",
+            "name": "Compost"
+          }
+        ]
+      },
+      {
+        "id": "4.3",
+        "name": "Pesticides",
+        "sub": [
+          {
+            "id": "4.3.1",
+            "name": "OrganicPesticides"
+          },
+          {
+            "id": "4.3.2",
+            "name": "ChemicalPesticides"
+          },
+          {
+            "id": "4.3.3",
+            "name": "WeedKillers"
+          }
+        ]
+      },
+      {
+        "id": "4.4",
+        "name": "Feed",
+        "sub": [
+          {
+            "id": "4.4.1",
+            "name": "CattleFeed"
+          },
+          {
+            "id": "4.4.2",
+            "name": "PoultryFeed"
+          },
+          {
+            "id": "4.4.3",
+            "name": "PetFood"
+          }
+        ]
+      },
+      {
+        "id": "4.5",
+        "name": "Fencing",
+        "sub": [
+          {
+            "id": "4.5.1",
+            "name": "ElectricFencing"
+          },
+          {
+            "id": "4.5.2",
+            "name": "ChickenWire"
+          },
+          {
+            "id": "4.5.3",
+            "name": "GardenNetting"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Properties",
+    "sub": [
+      {
+        "id": "5.1",
+        "name": "Farms",
+        "sub": [
+          {
+            "id": "5.1.1",
+            "name": "CropFarms"
+          },
+          {
+            "id": "5.1.2",
+            "name": "LivestockFarms"
+          },
+          {
+            "id": "5.1.3",
+            "name": "DairyFarms"
+          },
+          {
+            "id": "5.1.4",
+            "name": "OrganicFarms"
+          },
+          {
+            "id": "5.1.5",
+            "name": "HobbyFarms"
+          },
+          {
+            "id": "5.1.6",
+            "name": "Ranches"
+          }
+        ]
+      },
+      {
+        "id": "5.2",
+        "name": "Orchards",
+        "sub": [
+          {
+            "id": "5.2.1",
+            "name": "FruitOrchards"
+          },
+          {
+            "id": "5.2.2",
+            "name": "NutOrchards"
+          },
+          {
+            "id": "5.2.3",
+            "name": "Vineyards"
+          }
+        ]
+      },
+      {
+        "id": "5.3",
+        "name": "Forests",
+        "sub": [
+          {
+            "id": "5.3.1",
+            "name": "Timberland"
+          },
+          {
+            "id": "5.3.2",
+            "name": "ConservationLand"
+          }
+        ]
+      },
+      {
+        "id": "5.4",
+        "name": "Pastures",
+        "sub": [
+          {
+            "id": "5.4.1",
+            "name": "GrazingLand"
+          },
+          {
+            "id": "5.4.2",
+            "name": "MixedUsePasture"
+          }
+        ]
+      },
+      {
+        "id": "5.5",
+        "name": "Greenhouses",
+        "sub": [
+          {
+            "id": "5.5.1",
+            "name": "CommercialGreenhouses"
+          },
+          {
+            "id": "5.5.2",
+            "name": "PlantNurseries"
+          }
+        ]
+      },
+      {
+        "id": "5.6",
+        "name": "Residential",
+        "sub": [
+          {
+            "id": "5.6.1",
+            "name": "Farmhouses"
+          },
+          {
+            "id": "5.6.2",
+            "name": "RuralHomes"
+          },
+          {
+            "id": "5.6.3",
+            "name": "CountryEstates"
+          }
+        ]
+      },
+      {
+        "id": "5.7",
+        "name": "Commercial",
+        "sub": [
+          {
+            "id": "5.7.1",
+            "name": "AgribusinessFacilities"
+          },
+          {
+            "id": "5.7.2",
+            "name": "ProcessingPlants"
+          },
+          {
+            "id": "5.7.3",
+            "name": "StorageFacilities"
+          },
+          {
+            "id": "5.7.4",
+            "name": "Warehouses"
+          }
+        ]
+      },
+      {
+        "id": "5.8",
+        "name": "WaterRights",
+        "sub": [
+          {
+            "id": "5.8.1",
+            "name": "IrrigationRights"
+          },
+          {
+            "id": "5.8.2",
+            "name": "WellsAndWaterSources"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Other",
+    "sub": [
+      {
+        "id": "6.1",
+        "name": "Clothing",
+        "sub": [
+          {
+            "id": "6.1.1",
+            "name": "WorkBoots"
+          },
+          {
+            "id": "6.1.2",
+            "name": "Gloves"
+          },
+          {
+            "id": "6.1.3",
+            "name": "Hats"
+          },
+          {
+            "id": "6.1.4",
+            "name": "ProtectiveGear"
+          }
+        ]
+      },
+      {
+        "id": "6.2",
+        "name": "Storage",
+        "sub": [
+          {
+            "id": "6.2.1",
+            "name": "StorageBins"
+          },
+          {
+            "id": "6.2.2",
+            "name": "PackagingMaterials"
+          },
+          {
+            "id": "6.2.3",
+            "name": "RefrigerationUnits"
+          }
+        ]
+      },
+      {
+        "id": "6.3",
+        "name": "Services",
+        "sub": [
+          {
+            "id": "6.3.1",
+            "name": "VeterinaryServices"
+          },
+          {
+            "id": "6.3.2",
+            "name": "FarmMaintenanceServices"
+          },
+          {
+            "id": "6.3.3",
+            "name": "AgriculturalConsulting"
+          }
+        ]
+      },
+      {
+        "id": "6.4",
+        "name": "Energy",
+        "sub": [
+          {
+            "id": "6.4.1",
+            "name": "SolarPanels"
+          },
+          {
+            "id": "6.4.2",
+            "name": "WindTurbines"
+          },
+          {
+            "id": "6.4.3",
+            "name": "BiogasSystems"
+          }
+        ]
+      },
+      {
+        "id": "6.5",
+        "name": "Misc",
+        "sub": [
+          {
+            "id": "6.5.1",
+            "name": "FarmToysAndModels"
+          },
+          {
+            "id": "6.5.2",
+            "name": "EducationalBooksAndDVDs"
+          },
+          {
+            "id": "6.5.3",
+            "name": "FarmThemedHomeDecor"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "name": "Tourism",
+    "sub": [
+      {
+        "id": "7.1",
+        "name": "BnB",
+        "items": []
+      },
+      {
+        "id": "7.2",
+        "name": "FarmStays",
+        "items": []
+      },
+      {
+        "id": "7.3",
+        "name": "Events",
+        "sub": []
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Leasing",
+    "sub": [
+      {
+        "id": "8.1",
+        "name": "Farmland",
+        "sub": []
+      },
+      {
+        "id": "8.2",
+        "name": "Equipment",
+        "sub": []
+      },
+      {
+        "id": "8.3",
+        "name": "Storage",
+        "sub": []
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "name": "Services",
+    "sub": [
+      {
+        "id": "9.1",
+        "name": "RealEstate",
+        "sub": [
+          {
+            "id": "9.1.1",
+            "name": "SpecializingInAgriculturalProperties"
+          }
+        ]
+      },
+      {
+        "id": "9.2",
+        "name": "Surveyors",
+        "sub": []
+      },
+      {
+        "id": "9.3",
+        "name": "Consultants",
+        "sub": []
+      }
+    ]
+  }
+]
