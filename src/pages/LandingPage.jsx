@@ -4,6 +4,7 @@ import SearchBar from "@/components/SearchBar";
 import CategoryNavbar from "@/components/categoryNavbar";
 import CategoryHero from "@/components/CategoryHero";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
 import {CategoryProvider} from "@/context/CategoryContext"
 
 
@@ -19,6 +20,7 @@ const LandingPage = () => {
                     <CategoryHero/>
                     <Outlet/>
                 </CategoryProvider>
+                <ReactQueryDevtools initalIsOpen={false}/>
             </QueryClientProvider>
 
     </div>)

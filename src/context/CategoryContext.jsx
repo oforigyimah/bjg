@@ -18,11 +18,15 @@ export const CategoryProvider = ({children}) => {
     });
 
     useEffect(() => {
-        if (!categories) return;
+        if (!categories || categories.length === 0) return;
 
         const searchParams = new URLSearchParams(location.search);
         const categoryParam = searchParams.get('cat');
-        if (!categoryParam) return;
+        if (!categoryParam) {
+            setSelectedCategory(null);
+            setSubcategories([]);
+            return;
+        }
 
         const matchedCategory = categories.find(cat => cat.id === categoryParam);
         if (matchedCategory) {
@@ -32,7 +36,7 @@ export const CategoryProvider = ({children}) => {
             setSelectedCategory(null);
             setSubcategories([]);
         }
-    }, [location]);
+    }, [location.search, categories]);
 
     const value = {
         selectedCategory,

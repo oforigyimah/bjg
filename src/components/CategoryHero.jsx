@@ -18,15 +18,15 @@ const ProductCategory = ({title, imageSrc, altText}) => (<Card className="min-w-
 </Card>);
 
 const BackgroundCarousel = memo(({backgroundImagesUrls, currentSlide}) => (<Carousel className="w-full">
-        <CarouselContent>
-            {backgroundImagesUrls.map((src, index) => (
-                <CarouselItem key={index} className={index === currentSlide ? 'block' : 'hidden'}>
-                    <AspectRatio ratio={1}>
-                        <img src={src} alt={`Category background ${index + 1}`} className="w-full h-full object-cover"/>
-                    </AspectRatio>
-                </CarouselItem>))}
-        </CarouselContent>
-    </Carousel>));
+    <CarouselContent>
+        {backgroundImagesUrls.map((src, index) => (
+            <CarouselItem key={index} className={index === currentSlide ? 'block' : 'hidden'}>
+                <AspectRatio ratio={1}>
+                    <img src={src} alt={`Category background ${index + 1}`} className="w-full h-full object-cover"/>
+                </AspectRatio>
+            </CarouselItem>))}
+    </CarouselContent>
+</Carousel>));
 
 const CategoryHero = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -50,9 +50,7 @@ const CategoryHero = () => {
 
 
     const {
-        data: subCatImages,
-        error: subCatImagesError,
-        isLoading: subCatImagesLoading
+        data: subCatImages, error: subCatImagesError, isLoading: subCatImagesLoading
     } = useQuery({
         queryKey: ['subCatImages', subcategories],
         queryFn: () => fetchSubCatImages(subcategories),
@@ -87,13 +85,14 @@ const CategoryHero = () => {
             }
 
             const imageSrc = subCatImages[subcat.id][Math.floor(Math.random() * subCatImages[subcat.id].length)];
+            console.log(imageSrc);
             return (<ProductCategory
-                    key={subcat.id}
-                    title={subcat.name}
-                    imageSrc={imageSrc}
-                    altText={`Subcategory ${subcat.name}`}
-                    onClick={() => handleSubCatClick(subcat)}
-                />);
+                key={subcat.id}
+                title={subcat.name}
+                imageSrc={imageSrc}
+                altText={`Subcategory ${subcat.name}`}
+                onClick={() => handleSubCatClick(subcat)}
+            />);
         }).filter(Boolean);
     }, [subcategories, subCatImages, handleSubCatClick]);
 
@@ -101,35 +100,35 @@ const CategoryHero = () => {
     if (error) return <div className="p-4 text-red-500">Error: {error.message}</div>;
 
     return (<div className="relative overflow-hidden m-2 sm:m-1 max-h-[600px]">
-            <BackgroundCarousel backgroundImagesUrls={backgroundImagesUrls} currentSlide={currentSlide}/>
+        <BackgroundCarousel backgroundImagesUrls={backgroundImagesUrls} currentSlide={currentSlide}/>
 
-            <button
-                onClick={() => handleSlideChange('prev')}
-                className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full z-10 cursor-pointer"
-                aria-label="Previous slide"
-            >
-                <ChevronLeft className="w-6 h-6 text-gray-800"/>
-            </button>
-            <button
-                onClick={() => handleSlideChange('next')}
-                className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full z-10 cursor-pointer"
-                aria-label="Next slide"
-            >
-                <ChevronRight className="w-6 h-6 text-gray-800"/>
-            </button>
+        <button
+            onClick={() => handleSlideChange('prev')}
+            className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full z-10 cursor-pointer"
+            aria-label="Previous slide"
+        >
+            <ChevronLeft className="w-6 h-6 text-gray-800"/>
+        </button>
+        <button
+            onClick={() => handleSlideChange('next')}
+            className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full z-10 cursor-pointer"
+            aria-label="Next slide"
+        >
+            <ChevronRight className="w-6 h-6 text-gray-800"/>
+        </button>
 
-            <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-between p-4">
-                <div className="flex flex-grow items-center justify-center">
-                    <h2 className="text-3xl font-bold text-center text-white">{selectedCategory?.name || ""}</h2>
-                </div>
+        <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-between p-4">
+            <div className="flex flex-grow items-center justify-center">
+                <h2 className="text-3xl font-bold text-center text-white">{selectedCategory?.name || ""}</h2>
+            </div>
 
-                <div className="w-full overflow-x-auto no-scrollbar mt-auto">
-                    <div className="flex space-x-2">
-                        {memoizedSubcategories}
-                    </div>
+            <div className="w-full overflow-x-auto no-scrollbar mt-auto">
+                <div className="flex space-x-2">
+                    {memoizedSubcategories}
                 </div>
             </div>
-        </div>);
+        </div>
+    </div>);
 };
 
 export default memo(CategoryHero);

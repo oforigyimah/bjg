@@ -1,7 +1,7 @@
 import ProductCard from '@/components/ProductCard';
-import { useQuery } from "@tanstack/react-query";
-import { fetchAllProducts, fetchCategoryProducts } from "@/lib/utils";
-import { useCategory } from "@/context/CategoryContext";
+import {useQuery} from "@tanstack/react-query";
+import {fetchAllProducts, fetchCategoryProducts} from "@/lib/utils";
+import {useCategory} from "@/context/CategoryContext";
 
 function ProductList() {
     const categoryContext = useCategory();
@@ -21,6 +21,7 @@ function ProductList() {
         queryKey: ['allProducts'],
         queryFn: fetchAllProducts,
         staleTime: Infinity,
+        enabled: !selectedCategory?.id
     });
 
     const categoryProductsQuery = useQuery({
