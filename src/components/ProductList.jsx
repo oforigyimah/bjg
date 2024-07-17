@@ -2,6 +2,7 @@ import ProductCard from '@/components/ProductCard';
 import {useQuery} from "@tanstack/react-query";
 import {fetchAllProducts, fetchCategoryProducts} from "@/lib/utils";
 import {useCategory} from "@/context/CategoryContext";
+import {SkeletonCard} from "@/components/Skeleton.jsx";
 
 function ProductList() {
     const categoryContext = useCategory();
@@ -31,10 +32,17 @@ function ProductList() {
         enabled: !!selectedCategory?.id,
     });
 
-    if (categoriesLoading) return <div>Loading categories...</div>;
+    if (categoriesLoading) return <div className={"mt-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 p-2"}>{
+        Array.from({length: 10}, (_, index) => <div key={index}>
+            <SkeletonCard key={index}/>
+        </div>)
+    }</div>;
     if (categoriesError) return <div>Error loading categories: {categoriesError.message}</div>;
 
-    if (allProductsQuery.isLoading || categoryProductsQuery.isLoading) return <div>Loading products...</div>;
+    if (allProductsQuery.isLoading || categoryProductsQuery.isLoading) return <div
+        className={"mt-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 p-2"}>{
+        Array.from({length: 10}, (_, index) => <SkeletonCard key={index}/>)
+    }</div>;
     if (allProductsQuery.error) return <div>Error loading products: {allProductsQuery.error.message}</div>;
     if (categoryProductsQuery.error) return <div>Error loading category products: {categoryProductsQuery.error.message}</div>;
 

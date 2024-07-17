@@ -37,7 +37,7 @@ export async function fetchSubCatImages(subcategories) {
 
   await Promise.all(subcategories.map(async (subcat) => {
     const urls = await Promise.all(subcat.images.map(imagePath => getImageUrl(imagePath)));
-    subCatImages[subcat.id] = !!urls.length ? urls[0] : urls;
+    subCatImages[subcat.id] = urls.length ? urls[0] : urls;
     console.log(subCatImages[subcat.id]);
   }));
 

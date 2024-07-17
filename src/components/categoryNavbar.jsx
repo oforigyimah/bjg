@@ -1,6 +1,7 @@
-import { useNavigate } from 'react-router-dom';
-import { Button } from "@/components/ui/button";
-import { useCategory } from "@/context/CategoryContext";
+import {useNavigate} from 'react-router-dom';
+import {Button} from "@/components/ui/button";
+import {useCategory} from "@/context/CategoryContext";
+import {SkeletonCatNav} from "@/components/Skeleton.jsx";
 
 const CategoryNavbar = () => {
     const navigate = useNavigate();
@@ -25,7 +26,9 @@ const CategoryNavbar = () => {
     };
 
     if (isLoading) {
-        return <div className="mt-2 lg:mt-20 p-4">Loading categories...</div>;
+        return <div>
+            <SkeletonCatNav/>
+        </div>;
     }
 
     if (error) {

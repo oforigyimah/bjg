@@ -96,7 +96,7 @@ const CategoryHero = () => {
         }).filter(Boolean);
     }, [subcategories, subCatImages, handleSubCatClick]);
 
-    if (isLoading) return <div className="p-4">Loading...</div>;
+    if (isLoading) return <div></div>;
     if (error) return <div className="p-4 text-red-500">Error: {error.message}</div>;
 
     return (<div className="relative overflow-hidden m-2 sm:m-1 max-h-[600px]">
