@@ -2,13 +2,13 @@
 import {Input} from "@/components/ui/input";
 // import {Configure, Hits, InstantSearch, SearchBox} from "react-instantsearch";
 // import {Hit} from "@/components/Hit.jsx";
-import algoliasearch from "algoliasearch";
+// import algoliasearch from "algoliasearch";
 
-const searchClient = algoliasearch("CP7DP8RN52", "5f867486941253db889ddcd357b02203");
+// const searchClient = algoliasearch("CP7DP8RN52", "5f867486941253db889ddcd357b02203");
 
 
 function SearchBar() {
-    console.log(searchClient);
+    // console.log(searchClient);
     return (
         <div className="md:hidden relative m-1 mt-20 sm:pr-3 sm:pl-3">
             {/*<InstantSearch searchClient={searchClient} indexName="bjg-products">*/}

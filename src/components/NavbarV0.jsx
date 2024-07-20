@@ -17,12 +17,12 @@ import {auth} from "@/firebaseConfig";
 import {onAuthStateChanged, signOut} from 'firebase/auth'
 // import {Configure, Hits, InstantSearch} from "react-instantsearch";
 // import {Hit} from "@/components/Hit.jsx";
-import algoliasearch from "algoliasearch/lite.js";
+// import algoliasearch from "algoliasearch/lite.js";
 
-const searchClient = algoliasearch("CP7DP8RN52", "5f867486941253db889ddcd357b02203");
+// const searchClient = algoliasearch("CP7DP8RN52", "5f867486941253db889ddcd357b02203");
 
 function SearchBar() {
-    console.log(searchClient);
+    // console.log(searchClient);
     return (
         <div className="relative ml-10 mr-5 flex-1 w-full hidden md:flex md:grow-0">
             {/*<InstantSearch searchClient={searchClient} indexName="bjg-products">*/}
