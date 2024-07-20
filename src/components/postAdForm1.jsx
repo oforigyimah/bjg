@@ -5,7 +5,7 @@ import {Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectVal
 import {Card, CardContent} from "@/components/ui/card";
 import {Plus, X} from "lucide-react";
 import {useQuery} from "@tanstack/react-query";
-import {fetchLocations} from "@/lib/utils.js";
+import {fetchLocations, fetchCategories} from "@/lib/utils.js";
 
 const PostAdForm1 = () => {
     const {data: locations, isLoading, isError, error} = useQuery({
@@ -14,15 +14,22 @@ const PostAdForm1 = () => {
         staleTime: Infinity,
     });
 
+    const {data: categories, isLoading: isLoadingCategories, isError: isErrorCategories, error: errorCategories} =
+        useQuery({
+            queryFn: fetchCategories,
+            queryKey: ["categories"],
+            staleTime: Infinity,
+        });
+
     const fileInputRef = useRef(null);
     const [images, setImages] = useState([]);
 
-    if (isLoading) {
-        console.log("Loading locations...");
+    if (isLoading || isLoadingCategories) {
+        return <p>Loading...</p>;
     }
 
-    if (isError) {
-        console.log(error);
+    if (isError || isErrorCategories) {
+        return <p>Error: {error?.message || errorCategories?.message}</p>;
     }
 
     const handleFileChange = (event) => {
@@ -38,6 +45,8 @@ const PostAdForm1 = () => {
         setImages((prevImages) => prevImages.filter((_, i) => i !== index));
     };
 
+    console.log(categories);
+
     return (
         <div className="max-w-md mx-auto mt-10">
             <h1 className="text-2xl font-bold mb-6">Post ad</h1>
@@ -45,10 +54,24 @@ const PostAdForm1 = () => {
                 <Select>
                     <SelectTrigger>
                         <SelectValue placeholder="Category*"/>
-                    </SelectTrigger>
+                        </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="farm-animals">Farm Animals</SelectItem>
-                        {/* Add more categories as needed */}
+                        {locations?.map((location) => (
+                            <React.Fragment key={location.code}>
+                                <SelectItem value={location.code}>
+                                    {location.capital}
+                                </SelectItem>
+                                {location.districts && location.districts.length > 0 && (
+                                    <SelectGroup>
+                                        {location.districts.map((district) => (
+                                            <SelectItem key={district.code} value={district.code}>
+                                                {district.label}
+                                            </SelectItem>
+                                        ))}
+                                    </SelectGroup>
+                                )}
+                            </React.Fragment>
+                        ))}
                     </SelectContent>
                 </Select>
 
