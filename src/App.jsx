@@ -10,6 +10,7 @@ import TradersPage from "@/pages/TradersPage.jsx";
 import InvestorsPage from "@/pages/InvestorsPage.jsx";
 import FqaPage from "@/pages/FqaPage.jsx";
 import FarmersPage from "@/pages/FarmersPage.jsx";
+import SellPage from "@/pages/SellPage.jsx";
 
 export default function App() {
     return (
@@ -27,6 +28,7 @@ export default function App() {
                 <Route path="fqa" element={<FqaPage/>}/>
                 <Route path="investors" element={<InvestorsPage/>}/>
                 <Route path="farmers" element={<FarmersPage/>}/>
+                <Route path="sell" element={<SellPage/>}/>
             </Routes>
         </BrowserRouter>
     );

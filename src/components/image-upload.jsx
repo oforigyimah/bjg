@@ -1,18 +1,11 @@
-import  {useCallback, useState} from "react";
-import axios from "axios";
-import {
-    AudioWaveform,
-    File,
-    FileImage,
-    FolderArchive,
-    UploadCloud,
-    Video,
-    X,
-} from "lucide-react";
+import {useCallback, useState} from "react";
+import {AudioWaveform, File, FileImage, FolderArchive, UploadCloud, Video, X} from "lucide-react";
 import {useDropzone} from "react-dropzone";
 import {Input} from "@/components/ui/input";
 import {Progress} from "@/components/ui/progress";
 import {ScrollArea} from "@/components/ui/scroll-area";
+import {getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
+import {storage} from "@/firebaseConfig";
 
 const FileTypes = {
     Image: "image",
@@ -86,11 +79,11 @@ export default function ImageUpload() {
         };
     };
 
-    const onUploadProgress = (progressEvent, file, cancelSource) => {
+    const onUploadProgress = (snapshot, file) => {
         const progress = Math.round(
-            (progressEvent.loaded / (progressEvent.total ?? 0)) * 100
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
-
+        console.log("Upload is " + progress + "% done");
         if (progress === 100) {
             setUploadedFiles((prevUploadedFiles) => {
                 return [...prevUploadedFiles, file];
@@ -109,7 +102,6 @@ export default function ImageUpload() {
                     return {
                         ...item,
                         progress,
-                        source: cancelSource,
                     };
                 } else {
                     return item;
@@ -118,17 +110,21 @@ export default function ImageUpload() {
         });
     };
 
-    const uploadImageToCloudinary = async (
-        formData,
-        onUploadProgress,
-        cancelSource
-    ) => {
-        return axios.post(
-            `https://api.cloudinary.comimage/upload`,
-            formData,
-            {
-                onUploadProgress,
-                cancelToken: cancelSource.token,
+    const uploadFileToFirebase = async (file) => {
+        const storageRef = ref(storage, `uploads/${file.name}`);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on(
+            "state_changed",
+            (snapshot) => onUploadProgress(snapshot, file),
+            (error) => {
+                console.error("Upload failed:", error);
+                removeFile(file);
+            },
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    console.log("File available at", downloadURL);
+                });
             }
         );
     };
@@ -143,21 +139,19 @@ export default function ImageUpload() {
         });
     };
 
-    const onDrop = useCallback(async (acceptedFiles) => {
+    const onDrop = useCallback((acceptedFiles) => {
         setFilesToUpload((prevUploadProgress) => {
             return [
                 ...prevUploadProgress,
                 ...acceptedFiles.map((file) => {
+                    uploadFileToFirebase(file);
                     return {
                         progress: 0,
                         File: file,
-                        source: null,
                     };
                 }),
             ];
         });
-
-        // Cloudinary upload code is commented out in the original file
     }, []);
 
     const {getRootProps, getInputProps} = useDropzone({onDrop});
@@ -167,10 +161,10 @@ export default function ImageUpload() {
             <div>
                 <label
                     {...getRootProps()}
-                    className="relative flex flex-col items-center justify-center w-full py-6 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 "
+                    className="relative flex flex-col items-center justify-center w-full py-6 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
                 >
-                    <div className=" text-center">
-                        <div className=" border p-2 rounded-md max-w-min mx-auto">
+                    <div className="text-center">
+                        <div className="border p-2 rounded-md max-w-min mx-auto">
                             <UploadCloud size={20}/>
                         </div>
 
@@ -221,9 +215,7 @@ export default function ImageUpload() {
                                                 </div>
                                                 <Progress
                                                     progress={fileUploadProgress.progress}
-                                                    className={
-                                                        getFileIconAndColor(fileUploadProgress.File).color
-                                                    }
+                                                    className={getFileIconAndColor(fileUploadProgress.File).color}
                                                 />
                                             </div>
                                         </div>
