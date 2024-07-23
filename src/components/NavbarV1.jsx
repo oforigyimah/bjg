@@ -5,7 +5,8 @@ import {Button} from "@/components/ui/button";
 import {Input} from "@/components/ui/input";
 import {
     DropdownMenu,
-    DropdownMenuContent, DropdownMenuItem,
+    DropdownMenuContent,
+    DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger
@@ -21,8 +22,7 @@ const NavbarV1 = () => {
                     to="#"
                     className="flex items-center gap-2 text-lg font-semibold md:text-base"
                 >
-                    <Package2 className="h-6 w-6"/>
-                    <span className="sr-only">BJG</span>
+                    <span className="sr-only">AGRAPRO</span>
                 </Link>
                 <Link
                     to="#"

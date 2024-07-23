@@ -156,8 +156,8 @@ export default function NavbarV0() {
                             </SheetContent>
                         </Sheet>
                         <NavLink to={"/"} className="flex items-center ml-4">
-                            <Image src={"assets/logo_10.jpg"} className={"h-8 w-8"}/>
-                            <span className="ml-2 font-bold text-2xl text-blue-800">BJG</span>
+                            {/*<Image src={"assets/logo_10.jpg"} className={"h-8 w-8"}/>*/}
+                            <span className="ml-2 font-bold text-xl text-blue-800">AGRAPRO</span>
                         </NavLink>
                     </div>
                     <nav className="hidden md:flex gap-4">

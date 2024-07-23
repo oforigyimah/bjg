@@ -5,6 +5,71 @@ import {Carousel, CarouselContent, CarouselItem} from "@/components/ui/carousel"
 import categories from "@/db/categories.json";
 
 import ImageUpload from "@/components/image-upload";
+import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover.jsx";
+import {Button} from "@/components/ui/button.jsx";
+import {Check, ChevronsUpDown} from "lucide-react";
+import {Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList} from "@/components/ui/command.jsx";
+import {cn} from "@/lib/utils.js";
+
+
+const frameworks = [{value: "next.js", label: "Next.js",}, {value: "sveltekit", label: "SvelteKit",}, {
+    value: "nuxt.js",
+    label: "Nuxt.js",
+}, {value: "remix", label: "Remix",}, {value: "astro", label: "Astro",}]
+
+export function ComboboxDemo() {
+    const [open, setOpen] = useState(false);
+    const [value, setValue] = useState("");
+
+    const handleSelect = (currentValue) => {
+        setValue(currentValue === value ? "" : currentValue);
+        setOpen(false); // Ensure the popover closes when a selection is made
+    };
+
+    return (
+        <Popover open={open} onOpenChange={setOpen}>
+            <PopoverTrigger asChild>
+                <Button
+                    variant="outline"
+                    role="combobox"
+                    aria-expanded={open}
+                    className="w-[200px] justify-between"
+                    onClick={() => setOpen(!open)} // Ensure the popover can be opened/closed by clicking the button
+                >
+                    {value
+                        ? frameworks.find((framework) => framework.value === value)?.label
+                        : "Select framework..."}
+                    <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50"/>
+                </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-[200px] p-0">
+                <Command>
+                    <CommandInput placeholder="Search framework..."/>
+                    <CommandEmpty>No framework found.</CommandEmpty>
+                    <CommandGroup>
+                        <CommandList>
+                            {frameworks.map((framework) => (
+                                <CommandItem
+                                    key={framework.value}
+                                    onClick={() => handleSelect(framework.value)}
+                                >
+                                    <Check
+                                        className={cn(
+                                            "mr-2 h-4 w-4",
+                                            framework.value === value ? "opacity-100" : "opacity-0"
+                                        )}
+                                    />
+                                    {framework.label}
+                                </CommandItem>
+                            ))}
+                        </CommandList>
+                    </CommandGroup>
+                </Command>
+            </PopoverContent>
+        </Popover>
+    );
+}
+
 
 function Upload() {
     return (<main className="flex justify-center items-center min-h-screen">
@@ -84,6 +149,7 @@ const CategoryHero = () => {
 
 export default function DemoPage() {
     return (<>
+        <ComboboxDemo/>
             <CategoryHero/>
         <Upload/>
     </>);
